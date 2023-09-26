@@ -1,5 +1,5 @@
 {% set name = "MoorPy" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MoorPy-{{ version }}.tar.gz
-  sha256: 959c4cbcf0c7cf1d0ec9acc44efecc888c221fd6e40c0a589aa7292847ad4743
-  
+  sha256: 29965a0b50bcd2c9d5bfe835b2eff581aeaaf9ccd87087db89054338b92d1847
+
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
@@ -38,8 +38,8 @@ about:
   home: https://github.com/nrel/moorpy
   summary: "A design-oriented mooring system library for Python"
   description: |
-      MoorPy is a design-oriented mooring system library for Python based around a
-      quasi-static modeling approach.
+    MoorPy is a design-oriented mooring system library for Python based around a
+    quasi-static modeling approach.
   license: BSD-3-Clause
   license_file: LICENSE.txt
   dev_url: https://github.com/nrel/moorpy
