@@ -1,5 +1,5 @@
 {% set name = "MoorPy" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 source:
   #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MoorPy-{{ version }}.tar.gz
   url: https://github.com/NREL/MoorPy/archive/v{{ version }}.tar.gz
-  sha256: 51eb48e1cdf3e9adffd102aae391cc69e554394015d88644f6585372e5c50f7f
+  sha256: 8be33d1607e32a80616531e4888a8158f7e33c6efcd680ea05f3d8ee7b38193a
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
