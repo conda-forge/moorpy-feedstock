@@ -14,7 +14,6 @@ Development: https://github.com/nrel/moorpy
 MoorPy is a design-oriented mooring system library for Python based around a
 quasi-static modeling approach.
 
-
 Current build status
 ====================
 
