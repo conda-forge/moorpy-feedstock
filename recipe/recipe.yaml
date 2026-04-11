@@ -1,50 +1,51 @@
-{% set name = "MoorPy" %}
-{% set version = "1.3.0" %}
+schema_version: 1
+
+context:
+  name: MoorPy
+  version: "1.3.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
   #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MoorPy-{{ version }}.tar.gz
-  url: https://github.com/NREL/MoorPy/archive/v{{ version }}.tar.gz
+  url: https://github.com/NREL/MoorPy/archive/v${{ version }}.tar.gz
   sha256: e24c724dafd5bcdc3ab1aa621a10f7bfff211a42df120bdc7bec043cc71e2e4e
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
     - pip
   run:
     - matplotlib-base
     - numpy
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - pyyaml
     - scipy
 
-test:
-  commands:
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
-  imports:
-    - moorpy
+tests:
+  - python:
+      imports:
+        - moorpy
+      pip_check: true
+      python_version: ${{ python_min }}
 
 about:
-  home: https://github.com/nrel/moorpy
-  summary: "A design-oriented mooring system library for Python"
+  summary: A design-oriented mooring system library for Python
   description: |
     MoorPy is a design-oriented mooring system library for Python based around a
     quasi-static modeling approach.
   license: BSD-3-Clause
   license_file: LICENSE.txt
-  dev_url: https://github.com/nrel/moorpy
+  homepage: https://github.com/nrel/moorpy
+  repository: https://github.com/nrel/moorpy
 
 extra:
   recipe-maintainers:
